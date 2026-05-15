@@ -19,14 +19,7 @@ class OrdenServicioController extends Controller
      */
     public function index(Request $request)
     {
-        $query = OrdenServicio::with(['cliente', 'equipo', 'usuario']);
-
-        if ($request->has('estado') && $request->estado != '') {
-            $query->where('estado', $request->estado);
-        }
-
-        $ordenes = $query->latest()->paginate(10);
-        return view('ordenesServicio.index', compact('ordenes'));
+        return view('ordenesServicio.index');
     }
 
     /**
@@ -264,5 +257,62 @@ class OrdenServicioController extends Controller
         $orden->save();
 
         return $orden;
+    }
+
+    /**
+     * Muestra la página de seguimiento de órdenes
+     */
+    public function seguimiento()
+    {
+        return view('ordenesServicio.seguimiento');
+    }
+
+    /**
+     * Busca una orden por número de orden y cédula del cliente
+     */
+    public function buscar(Request $request)
+    {
+        $request->validate([
+            'numero_orden' => 'required|string',
+            'cedula' => 'required|string',
+        ]);
+
+        // Normalizar el número de orden
+        $numeroOrden = $this->normalizarNumeroOrden($request->numero_orden);
+
+        $orden = OrdenServicio::with(['cliente', 'equipo', 'imagenes'])
+            ->where('numero_orden', $numeroOrden)
+            ->whereHas('cliente', function ($query) {
+                $query->where('documento', request('cedula'));
+            })
+            ->first();
+
+        if (!$orden) {
+            return back()->with('error', 'No se encontró la orden con los datos ingresados.');
+        }
+
+        return view('ordenesServicio.detalle', compact('orden'));
+    }
+
+    /**
+     * Normaliza el número de orden a formato OS-XXXXX
+     */
+    private function normalizarNumeroOrden(string $input): string
+    {
+        // Si ya tiene el formato OS- al inicio, devolverlo sin cambios
+        if (strpos($input, 'OS-') === 0) {
+            return $input;
+        }
+
+        // Extraer solo los dígitos
+        $digits = preg_replace('/\D/', '', $input);
+
+        // Si no hay dígitos, devolver el input original
+        if (empty($digits)) {
+            return $input;
+        }
+
+        // Rellenar con ceros a la izquierda hasta 5 dígitos y agregar prefijo OS-
+        return 'OS-' . str_pad($digits, 5, '0', STR_PAD_LEFT);
     }
 }

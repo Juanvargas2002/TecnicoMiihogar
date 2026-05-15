@@ -8,9 +8,10 @@ use App\Http\Controllers\ImagenController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsuarioController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::view('/', 'welcome')->name('welcome');
+
+Route::get('/ordenes/seguimiento', [OrdenServicioController::class, 'seguimiento'])->name('ordenes.seguimiento');
+Route::post('/ordenes/buscar', [OrdenServicioController::class, 'buscar'])->name('ordenes.buscar');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

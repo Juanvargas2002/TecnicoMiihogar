@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="{{ asset('admin/css/main.css?v=1628755089081') }}">
 
  @vite(['resources/css/app.css', 'resources/js/app.js'])
+ @livewireStyles
 
   <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('logo_1.png') }}"/>
   <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('logo_32_21.png') }}"/>
@@ -62,5 +63,6 @@
 </script>
 
 @stack('scripts')
+@livewireScripts
 </body>
 </html>

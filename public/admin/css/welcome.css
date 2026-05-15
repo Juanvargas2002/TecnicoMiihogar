@@ -1,11 +1,8 @@
 body {
     background:
-        radial-gradient(circle at top left, rgba(246, 59, 59, 0.18), transparent 15%),
-        radial-gradient(circle at top right, rgba(249, 22, 22, 0.14), transparent 15%),
         linear-gradient(180deg, #f8fafc 0%, #eef2f7 100%);
     color: #111827;
 }
-
 .landing-shell {
     max-width: 1200px;
     margin: 0 auto;

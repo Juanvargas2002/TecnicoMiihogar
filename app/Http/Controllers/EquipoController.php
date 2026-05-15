@@ -14,16 +14,7 @@ class EquipoController extends Controller
      */
     public function index(Request $request)
     {
-        $query = Equipo::with('cliente');
-
-        if ($request->filled('cliente_id')) {
-            $query->where('cliente_id', $request->cliente_id);
-        }
-
-        $equipos = $query->paginate(10);
-        $clientes = Cliente::orderBy('nombre')->get(); // Para el filtro
-
-        return view('equipos.index', compact('equipos', 'clientes'));
+        return view('equipos.index');
     }
 
     /**

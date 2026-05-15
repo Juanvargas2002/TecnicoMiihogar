@@ -3,7 +3,7 @@
         <span class="icon"><i class="mdi mdi-menu mdi-24px"></i></span>
     </a>
     <div class="navbar-item">
-      <x-application-logo class="w-20 h-full fill-current" />
+      <a href="{{ route('welcome')}}"><x-application-logo class="w-20 h-full fill-current" /></a>
     </div>
 </div>
 <div class="navbar-menu" id="navbar-menu">

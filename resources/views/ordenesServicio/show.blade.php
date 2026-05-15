@@ -3,32 +3,24 @@
 @section('content')
 
 <section class="section is-title-bar">
-    <div class="flex justify-between items-center mb-6">
-        <div class="flex items-center">
-            <div class="flex-shrink-0">
-                <ul>
-                    <li>Órdenes de Servicio</li>
-                    <li>Orden #{{ $orden->numero_orden }}</li>
-                </ul>
-            </div>
-        </div>
-        <div class="flex items-center">
-            <div class="flex-shrink-0">
-                <div class="buttons is-right">
-                    <a href="{{ route('ordenes.index') }}" class="button">
-                        <span class="icon"><i class="mdi mdi-arrow-left"></i></span>
-                        <span>Volver</span>
-                    </a>
-                    <a href="{{ route('ordenes.pdf', $orden) }}" class="button green" target="_blank" rel="noopener">
-                        <span class="icon"><i class="mdi mdi-file-pdf-box"></i></span>
-                        <span>Descargar Comprobante</span>
-                    </a>
-                    <a href="{{ route('ordenes.edit', $orden->id) }}" class="button orange">
-                        <span class="icon"><i class="mdi mdi-pencil"></i></span>
-                        <span>Editar / Diagnosticar</span>
-                    </a>
-                </div>
-            </div>
+    <div class="flex flex-wrap justify-between items-center gap-2 mb-6">
+        <ul>
+            <li>Órdenes de Servicio</li>
+            <li>Orden #{{ $orden->numero_orden }}</li>
+        </ul>
+        <div class="grid grid-cols-3 sm:grid-cols-1 md:grid-cols-2 gap-2">
+            <a href="{{ route('ordenes.index') }}" class="button whitespace-nowrap">
+                <span class="icon"><i class="mdi mdi-arrow-left"></i></span>
+                <span>Volver</span>
+            </a>
+            <a href="{{ route('ordenes.pdf', $orden) }}" class="button green whitespace-nowrap" target="_blank" rel="noopener">
+                <span class="icon"><i class="mdi mdi-file-pdf-box"></i></span>
+                <span>Descargar Comprobante</span>
+            </a>
+            <a href="{{ route('ordenes.edit', $orden->id) }}" class="button orange whitespace-nowrap">
+                <span class="icon"><i class="mdi mdi-pencil"></i></span>
+                <span>Editar / Diagnosticar</span>
+            </a>
         </div>
     </div>
 </section>

@@ -2,24 +2,16 @@
 
 @section('content')
 <section class="section is-title-bar">
-    <div class="flex justify-between items-center mb-6">
-        <div class="flex items-center">
-            <div class="flex-shrink-0">
-                <ul>
-                    <li>Equipos</li>
-                    <li>Detalles</li>
-                </ul>
-            </div>
-        </div>
-        <div class="flex items-center">
-            <div class="flex-shrink-0">
-                <div class="buttons is-right">
-                    <a href="{{ route('equipos.index') }}" class="button">
-                        <span class="icon"><i class="mdi mdi-arrow-left"></i></span>
-                        <span>Volver</span>
-                    </a>
-                </div>
-            </div>
+    <div class="flex flex-wrap items-center justify-between gap-2 mb-6">
+        <ul>
+            <li>Equipos</li>
+            <li>Detalles</li>
+        </ul>
+        <div class="flex flex-wrap gap-2 justify-end">
+            <a href="{{ route('equipos.index') }}" class="button whitespace-nowrap">
+                <span class="icon"><i class="mdi mdi-arrow-left"></i></span>
+                <span>Volver</span>
+            </a>
         </div>
     </div>
 </section>

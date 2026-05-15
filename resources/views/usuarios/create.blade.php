@@ -63,9 +63,9 @@
                 <div class="control">
                     <div class="select">
                         <select name="rol" required>
-                            <option value="recepcionista" {{ old('rol') == 'recepcionista' ? 'selected' : '' }}>Recepcionista</option>
-                            <option value="tecnico" {{ old('rol') == 'tecnico' ? 'selected' : '' }}>Técnico</option>
-                            <option value="admin" {{ old('rol') == 'admin' ? 'selected' : '' }}>Administrador</option>
+                            <option value="Recepcionista" {{ old('rol') == 'Recepcionista' ? 'selected' : '' }}>Recepcionista</option>
+                            <option value="écnico" {{ old('rol') == 'Técnico' ? 'selected' : '' }}>Técnico</option>
+                            <option value="Administrador" {{ old('rol') == 'Administrador' ? 'selected' : '' }}>Administrador</option>
                         </select>
                     </div>
                 </div>
