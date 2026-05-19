@@ -1,0 +1,10 @@
+{
+  "models": [
+    {
+      "title": "Qwen Local",
+      "provider": "openai",
+      "model": "qwen",
+      "apiBase": "http://localhost:1234/v1"
+    }
+  ]
+}

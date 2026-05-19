@@ -3,7 +3,12 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Seguimiento de Orden - {{ config('app.name', 'Laravel') }}</title>
+
+    <title>Mi Hogar</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('logo_1.png') }}"/>
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('logo_32_21.png') }}"/>
+ 
+
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600" rel="stylesheet" />
     <link rel="stylesheet" href="{{ asset('admin/css/welcome.css') }}">
